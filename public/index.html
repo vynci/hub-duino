@@ -1,0 +1,130 @@
+<html>
+<title>Kadasig - hubDuino</title>
+
+<head>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var socket = io.connect('http://localhost:3000');
+        //var socket = io.connect('http://10.10.0.101:3000'); 
+        socket.on('connected', function(data) {
+            console.log('Connected, this is what I received : ', data);
+        });
+
+        $("#relayAOn").click(function() {
+            socket.emit('sendSerial', '0');
+        });
+
+        $("#relayAOff").click(function() {
+            socket.emit('sendSerial', '1');
+        });
+
+        $("#relayBOn").click(function() {
+            socket.emit('sendSerial', '2');
+        });
+
+        $("#relayBOff").click(function() {
+            socket.emit('sendSerial', '3');
+        });
+
+        $("#relayCOn").click(function() {
+            socket.emit('sendSerial', '4');
+        });
+
+        $("#relayCOff").click(function() {
+            socket.emit('sendSerial', '5');
+        });
+
+        $("#relayDOn").click(function() {
+            socket.emit('sendSerial', '6');
+        });
+
+        $("#relayDOff").click(function() {
+            socket.emit('sendSerial', '7');
+        });
+
+        $("#relayEOn").click(function() {
+            socket.emit('sendSerial', '9');
+        });
+
+    });
+    </script>
+
+    <h2>Control Panel</h2>
+    <table border=0>
+        <tr>
+            <td colspan=2>
+                <h3>Relay Control</h3>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                LED A
+            </td>
+            <td>
+                <button id="relayAOn">On</button>
+                <button id="relayAOff">Off</button>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                LED B
+            </td>
+            <td>
+                <button id="relayBOn">On</button>
+                <button id="relayBOff">Off</button>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td>
+                LED C
+            </td>
+            <td>
+                <button id="relayCOn">On</button>
+                <button id="relayCOff">Off</button>
+            </td>
+
+
+        </tr>
+
+        </tr>
+
+        <tr>
+            <td>
+                Beeper
+            </td>
+            <td>
+                <button id="relayEOn">Beep</button>
+            </td>
+
+
+        </tr>
+
+        </tr>
+
+        <tr>
+            <td>
+                ALL LEDs
+            </td>
+            <td>
+                <button id="relayDOn">On</button>
+                <button id="relayDOff">Off</button>
+            </td>
+
+
+        </tr>
+
+
+
+
+</head>
+
+</html>
